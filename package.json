@@ -1,9 +1,9 @@
 {
-  "name": "webpack-static-html-pages",
+  "name": "goit-js-hw-12-searching-countries",
   "version": "2.0.0",
   "repository": {
     "type": "git",
-    "url" : "https://github.com/ivarprudnikov/webpack-static-html-pages"
+    "url": "git+https://dimalitvinenko.github.io/goit-Js-hw-12-searching-countries.git"
   },
   "description": "Example of a static website assembled by using webpack v5",
   "keywords": [
@@ -14,22 +14,32 @@
     "pages"
   ],
   "license": "MIT",
-  "dependencies": {
-    "normalize.css": "^8.0.1"
+  "bugs": {
+    "url": "https://dimalitvinenko.github.io/goit-Js-hw-12-searching-countries/issues"
   },
+  "homepage": "https://dimalitvinenko.github.io/goit-Js-hw-12-searching-countries",
   "scripts": {
     "start": "webpack serve --config webpack.dev.js",
-    "start:dist": "http-server dist --port ${PORT:-8080}",
+    "start:dist": "http-server dist",
     "build": "webpack --config webpack.prod.js",
     "preview": "npm run build && npm run start:dist",
     "test": "standard",
+    "deploy": "gh-pages -d dist",
     "cy:run": "cypress run"
+  },
+  "dependencies": {
+    "gh-pages": "^3.2.3",
+    "handlebars": "^4.7.7",
+    "handlebars-loader": "^1.7.1",
+    "lodash.debounce": "^4.0.8",
+    "pnotify": "^5.2.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.14.8",
     "@babel/core": "^7.14.0",
     "@babel/preset-env": "^7.14.8",
     "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.2.0",
     "css-minimizer-webpack-plugin": "^2.0.0",
     "cypress": "^7.2.0",
@@ -37,20 +47,15 @@
     "html-webpack-plugin": "^5.3.2",
     "http-server": "^0.12.3",
     "mini-css-extract-plugin": "^1.6.0",
+    "node-sass": "^6.0.1",
+    "postcss-loader": "^6.2.0",
+    "sass": "^1.43.2",
+    "sass-loader": "^12.2.0",
     "standard": "^16.0.3",
     "style-loader": "^2.0.0",
     "terser-webpack-plugin": "^5.1.3",
-    "webpack": "^5.47.1",
+    "webpack": "^5.58.2",
     "webpack-cli": "^4.7.0",
     "webpack-dev-server": "^3.11.2"
-  },
-  "standard": {
-    "ignore": [
-      "cypress"
-    ],
-    "env": [
-      "node",
-      "es6"
-    ]
   }
 }

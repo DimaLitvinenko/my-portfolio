@@ -1,41 +1,34 @@
 const path = require('path')
-
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
-
-const buildPath = path.resolve(__dirname, 'dist')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
-
-  // https://webpack.js.org/configuration/mode/
+                      // https://webpack.js.org/configuration/mode/
   mode: 'production',
-
-  // This option controls if and how source maps are generated.
-  // https://webpack.js.org/configuration/devtool/
+                      // This option controls if and how source maps are generated.
+                      // https://webpack.js.org/configuration/devtool/
   devtool: 'source-map',
-
-  // https://webpack.js.org/concepts/entry-points/#multi-page-application
+                        // https://webpack.js.org/concepts/entry-points/#multi-page-application
   entry: {
     index: './src/page-index/main.js',
     about: './src/page-about/main.js',
     contacts: './src/page-contacts/main.js'
   },
-
-  // how to write the compiled files to disk
-  // https://webpack.js.org/concepts/output/
+                        // how to write the compiled files to disk
+                        // https://webpack.js.org/concepts/output/
   output: {
     filename: '[name].[contenthash].js',
-    path: buildPath,
+    path: path.resolve(__dirname, 'dist'),
     clean: true
   },
-
-  // https://webpack.js.org/concepts/loaders/
+                        // https://webpack.js.org/concepts/loaders/
   module: {
     rules: [
       {
-        // https://webpack.js.org/loaders/babel-loader/#root
+                        // https://webpack.js.org/loaders/babel-loader/#root
         test: /\.m?js$/i,
         exclude: /node_modules/,
         use: {
@@ -46,17 +39,34 @@ module.exports = {
         }
       },
       {
-        // https://webpack.js.org/loaders/css-loader/#root
-        test: /\.css$/i,
+        test: /\.hbs$/,
+        loader: 'handlebars-loader',
+      },
+      {
+        test: /\.s[ac]ss$/i,
         use: [
           MiniCssExtractPlugin.loader,
-          'css-loader'
-        ]
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true,
+            },
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true,
+            },
+          },
+        ],
       },
       {
         // https://webpack.js.org/guides/asset-modules/#resource-assets
-        test: /\.(png|jpe?g|gif|svg)$/i,
-        type: 'asset/resource'
+        test: /\.(png|jpg|gif|svg)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'images/[name][ext]',
+        },
       },
       {
         // https://webpack.js.org/guides/asset-modules/#replacing-inline-loader-syntax
@@ -66,11 +76,13 @@ module.exports = {
       {
         // https://webpack.js.org/loaders/html-loader/#usage
         resourceQuery: /template/,
-        loader: 'html-loader'
+        loader: 'html-loader',
+        options: {
+          minimize: true,
+        },
       }
     ]
   },
-
   // https://webpack.js.org/concepts/plugins/
   plugins: [
     new HtmlWebpackPlugin({
@@ -94,9 +106,9 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css',
       chunkFilename: '[id].[contenthash].css'
-    })
+    }),
+    new CleanWebpackPlugin()
   ],
-
   // https://webpack.js.org/configuration/optimization/
   optimization: {
     minimize: true,

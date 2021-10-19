@@ -1,7 +1,8 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
-
   // https://webpack.js.org/configuration/mode/
   mode: 'development',
 
@@ -19,6 +20,7 @@ module.exports = {
   // https://webpack.js.org/configuration/dev-server/
   devServer: {
     port: 8080,
+    open: true,
     writeToDisk: false // https://webpack.js.org/configuration/dev-server/#devserverwritetodisk-
   },
 
@@ -36,10 +38,18 @@ module.exports = {
           }
         }
       },
+      // {
+      //   // https://webpack.js.org/loaders/css-loader/#root
+      //   test: /\.css$/i,
+      //   use: ['style-loader', 'css-loader']
+      // },
       {
-        // https://webpack.js.org/loaders/css-loader/#root
-        test: /\.css$/i,
-        use: ['style-loader', 'css-loader']
+        test: /\.s[ac]ss$/i,
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',           // Переводит CSS в CommonJS 
+          'sass-loader'
+        ],
       },
       {
         // https://webpack.js.org/guides/asset-modules/#resource-assets
@@ -78,6 +88,11 @@ module.exports = {
       inject: true,
       chunks: ['contacts'],
       filename: 'contacts.html'
-    })
+    }),
+    new MiniCssExtractPlugin({
+      filename: '[name].[contenthash].css',
+      chunkFilename: '[id].[contenthash].css'
+    }),
+    new CleanWebpackPlugin ({ })
   ]
 }

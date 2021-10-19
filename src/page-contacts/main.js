@@ -1,6 +1,6 @@
-require('normalize.css/normalize.css')
-require('../css/main.css')
-require('./page.css')
+
+import '../scss/main.scss'
+import './page.scss'
 
 document.addEventListener('DOMContentLoaded', () => {
   console.log('DOMContentLoaded', 'page-contacts')
