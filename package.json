@@ -1,11 +1,11 @@
 {
-  "name": "goit-js-hw-12-searching-countries",
+  "name": "portfolio",
   "version": "2.0.0",
   "repository": {
     "type": "git",
-    "url": "git+https://dimalitvinenko.github.io/goit-Js-hw-12-searching-countries.git"
+    "url": "git+https://dimalitvinenko.github.io/my-portfolio.git"
   },
-  "description": "Example of a static website assembled by using webpack v5",
+  "description": "Example static website assembled by using webpack v5",
   "keywords": [
     "webpack",
     "static",
@@ -15,9 +15,9 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://dimalitvinenko.github.io/goit-Js-hw-12-searching-countries/issues"
+    "url": "https://dimalitvinenko.github.io/my-portfolio/issues"
   },
-  "homepage": "https://dimalitvinenko.github.io/goit-Js-hw-12-searching-countries",
+  "homepage": "https://dimalitvinenko.github.io/my-portfolio",
   "scripts": {
     "start": "webpack serve --config webpack.dev.js",
     "start:dist": "http-server dist",
