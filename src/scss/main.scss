@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   height: 100vh;
 }
 
@@ -6,30 +7,41 @@ body {
   background-color: #ffffff;
   color: #2c302f;
   font-weight: 400;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 0;
   display: flex;
   flex-direction: column;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-weight: 300;
+  margin: 0;
 }
 
+// ============= NAVIGATION ================
 nav {
   display: block;
   background-color: black;
   color: white;
   padding: 7px;
-}
 
-nav > ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  justify-content: space-evenly;
+  & > ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    @media screen and (max-width: 399px) {
+      margin-bottom: 15px;
+    }
+
+    @media screen and (min-width: 400px) {
+      display: flex;
+      justify-content: space-evenly;
+    }
+  }
 }
 
 nav > ul > li {
@@ -44,9 +56,22 @@ nav > ul > li > a {
   font-weight: bold;
   text-shadow: 0 -1px black;
   text-decoration: none;
-  border: 1px solid rgba(0,0,0,0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 3px;
-  background-color: rgba(0,0,0,0.1);
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+// ============== CONTAINER ===============
+.container {
+  @media (max-width: 1199px) {
+    min-width: calc(33.333333333333% - 20px);
+  }
+  @media (max-width: 991px) {
+    min-width: calc(50% - 20px);
+  }
+  @media (max-width: 575px) {
+    min-width: calc(100% - 20px);
+  }
 }
 
 .page-title {
@@ -55,31 +80,38 @@ nav > ul > li > a {
   text-align: center;
   word-break: break-all;
   line-height: 0.85;
+
+  & > i {
+    display: block;
+    font-size: 2em;
+    margin-bottom: 15px;
+  }
 }
 
-.page-title > i {
-  display: block;
-  font-size: 2em;
-  margin-bottom: 0.3em;
-}
-
+// ============= FOOTER ================
 footer {
   background: #282828;
   color: beige;
   flex: 1 0 auto;
-  padding-top: 20px;
+  padding: 20px 0px;
+
+  & > ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    @media screen and (max-width: 399px) {
+      margin-bottom: 15px;
+    }
+    @media screen and (min-width: 400px) {
+      display: flex;
+      justify-content: space-evenly;
+    }
+  }
 }
 
 footer a {
   color: beige;
-}
-
-footer > ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  justify-content: space-evenly;
 }
 
 footer > ul > li {
