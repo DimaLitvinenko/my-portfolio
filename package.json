@@ -5,11 +5,11 @@
     "type": "git",
     "url": "git+https://dimalitvinenko.github.io/my-portfolio.git"
   },
-  "description": "Example static website assembled by using webpack v5",
+  "description": "Static website assembled by using webpack v5",
   "keywords": [
     "webpack",
     "static",
-    "starter",
+    "portfolio",
     "html",
     "pages"
   ],

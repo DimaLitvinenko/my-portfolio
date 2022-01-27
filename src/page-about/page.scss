@@ -5,7 +5,6 @@ body {
   background-color: #1f2029;
   overflow-x: hidden;
 }
-
 nav {
   background-color: #8d0085;
 }
@@ -14,20 +13,19 @@ nav {
   color: #1c1c2a;
   margin-bottom: 20px;
 }
-
 .section {
   position: relative;
   width: 100%;
   display: block;
   padding: 50px 0;
 }
-
 .wrapper {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
 }
+
 [type='checkbox']:checked,
 [type='checkbox']:not(:checked) {
   position: absolute;

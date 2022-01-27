@@ -1,9 +1,33 @@
+html,
+body,
+section {
+  block-size: 100%;
+}
+
+html {
+  scroll-snap-type: y mandatory;
+}
+
 body {
-  background-color: #ae223e;
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  font-size: 4rem;
 }
-nav {
-  background-color: #006962;
-}
-.page-title {
-  color: beige;
+
+section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:nth-of-type(even) {
+    color: white;
+    background: black;
+  }
+  &:nth-of-type(odd) {
+    color: black;
+    background: white;
+  }
 }
