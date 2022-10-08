@@ -1,19 +1,22 @@
+// html {
+//   scroll-snap-type: y mandatory;
+// }
+
 html,
 body,
 section {
   block-size: 100%;
 }
-
-html {
-  scroll-snap-type: y mandatory;
-}
-
 body {
+  position: relative;
   margin: 0;
   font-family: system-ui, sans-serif;
-  font-size: 4rem;
+  // font-size: 4rem;
 }
-
+header {
+  position: sticky;
+  height: 50px;
+}
 section {
   scroll-snap-align: start;
   scroll-snap-stop: always;
