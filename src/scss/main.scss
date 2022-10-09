@@ -9,6 +9,8 @@
   --white-color-alt: hsl(12, 14%, 93%);
   --dark-color: hsl(300, 100%, 0%);
 }
+
+// ========================== COMMON-STYLES ============================
 *,
 *::before,
 *::after {
@@ -18,16 +20,13 @@
 }
 body {
   background-color: var(--white-color);
-  color: #2c302f;
+  // color: #2c302f;
   font-weight: 400;
   min-height: 100vh;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  // display: flex;
-  // flex-direction: column;
-  overflow: hidden;
 }
 img {
-  width: 100%;
+  // width: 100%;
   height: auto;
 }
 h1,
@@ -60,7 +59,7 @@ a {
     min-width: calc(100% - 20px);
   }
 }
-
+// ============================= HEADER ===============================
 header {
   display: flex;
   align-items: center;
@@ -68,22 +67,93 @@ header {
   background-color: var(--dark-color);
 }
 .company-logo {
-  font-size: 2.5rem;
-  background-image: linear-gradient(
-    120deg,
-    var(--primary-color-alt),
-    var(--primary-color)
-  );
+  position: relative;
+
+  &:hover .company-logo_link {
+	  letter-spacing: 3px;
+  } 
+
+  &:hover .company-logo_link::before {
+    transform: skewX(45deg) translate(200px);
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+    bottom: 0;
+    width: 30px;
+    height: 4px;
+    background: #f00;
+    border-radius: 10px;
+    transition: 0.5s;
+    transition-delay: 0.5;
+  }
+
+    &:hover::before /*lightup button*/ {
+    bottom: 0;
+    height: 50%;
+    width: 80%;
+    border-radius: 30px;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+    bottom: 20px;
+    width: 30px;
+    height: 4px;
+    background: #f00;
+    border-radius: 10px;
+    transition: 0.5s;
+    transition-delay: 0.5;
+  }
+  
+  &::before {
+    background: #f00;
+	  box-shadow: 0 0 5px #f00, 0 0 15px #f00, 0 0 30px #f00,
+		0 0 60px #f00;
+  }
+}
+.company-logo_link {
+  display: flex;
+	justify-content: center;
+	align-items: center;
+	background: rgba(255, 255, 255, 0.05);
+	box-shadow: 0 15px 15px rgba(0, 0, 0, 0.3);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	border-top: 1px solid rgba(255, 255, 255, 0.1);
+	border-radius: 30px;
+	padding: 8px;
+	letter-spacing: 1px;
+	text-decoration: none;
+	overflow: hidden;
+	color: #fff;
+	font-weight: 400px;
+	z-index: 2;
+	transition: 0.5s;
+	backdrop-filter: blur(15px);
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to left, rgba(255, 255, 255, 0.15), transparent);
+    transform: skewX(45deg) translate(0);
+    transition: 0.5s;
+    filter: blur(0px);
+    z-index: 1;
+  }
 }
 
 // ========================== NAVIGATION ==================================
 .navbar {
-  // display: flex;
-  // justify-content: flex-start;
-  // display: block;
-  // background-color: black;
-  // color: white;
-  // padding: 7px;
   & > ul {
     list-style: none;
     padding: 0;
@@ -99,10 +169,8 @@ header {
   }
 }
 .nav-list {
-  // width: 1000px;
 	display: flex;
 	flex-wrap: wrap;
-	// justify-content: space-between;
 }
 .nav-item {
   position: relative;
@@ -323,6 +391,12 @@ footer > ul > li > a {
   .hide-bx {
     display: none !important;
   }
+  .wrapper-1 {
+    padding: 5rem 5rem 0 5rem;
+  }
+  .home-computer-container {
+    padding-top: 25px;
+  }
 }
 
 @media (min-width: 769px) {
@@ -336,7 +410,8 @@ footer > ul > li > a {
   }
   }
   /* ---------------- HOME SECTION -------------- */
-  .section-1 {
+  .wrapper-1 {
+    display: grid;
     justify-content: space-between;
     grid-template-columns: 1fr 1fr;
     padding: 10rem 5rem 0 5rem;
@@ -350,12 +425,13 @@ footer > ul > li > a {
     max-width: 20rem;
     font-size: 1.3rem;
   }
+  
   /* -------------- OFFER SECTION -------------- */
-  .section-2 {
-    margin: 2rem 5rem;
-  }
+  // .section-2 {
+  //   margin: 2rem 5rem;
+  // }
   .offer {
-    margin: 5rem 0;
+    margin-bottom: 5rem;
     align-items: center;
     justify-content: space-between;
     grid-template-rows: auto auto;
@@ -401,7 +477,7 @@ footer > ul > li > a {
   }
 
   /* ----------------- PRODUCT SECTION ------------------ */
-  .section-3 {
+  .wrapper-3 {
     gap: 1rem;
   }
   .product::before {
@@ -424,15 +500,15 @@ footer > ul > li > a {
   }
 
   /* ---------------- SPONSOR SECTION ---------------- */
-  .section-4 {
-    margin: 5rem 0;
-  }
+  // .section-4 {
+  //   margin: 5rem 0;
+  // }
 
   /* ---------------= SUBSCRIBE SECTION ------------- */
-  .section-5 {
+  .wrapper-5 {
     padding: 1rem 0;
   }
-  .section-5 .subscribe-container {
+  .wrapper-5 .subscribe-container {
     display: flex;
     align-items: center;
   }
