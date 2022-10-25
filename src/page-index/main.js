@@ -1,9 +1,10 @@
+// import 'normalize.css/normalize.css'
 import '../scss/main.scss'
 import './page.scss'
 import '../img/logo_angry-dog.png'
+
 import { Bar } from '../js/bar.es6'
 const { Foo } = require('../js/foo.cjs')
-// import 'normalize.css/normalize.css'
 
 document.addEventListener('DOMContentLoaded', () => {
   console.log('DOMContentLoaded', 'page-index')

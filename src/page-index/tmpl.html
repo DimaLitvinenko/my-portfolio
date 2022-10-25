@@ -1,136 +1,155 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>My homepage</title>
-  <meta charset="UTF-8">
-  <meta http-equiv="cache-control" content="no-cache"/>
-  <meta http-equiv="pragma" content="no-cache"/>
-  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <meta name="viewport"
-        content="width=device-width,user-scalable=0,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-</head>
-<body>
-  <!-- ========= HEADER ========= -->
-  <%= require('../partials/nav.html?raw') %>
+  <head>
+    <title>Portfolio</title>
+    <meta charset="UTF-8">
+    <meta lang="en">
+    <meta http-equiv="cache-control" content="no-cache"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,user-scalable=0,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  </head>
+  <body>
 
-  <!-- ========= MAIN ========= -->
-  <main>
-    <section class="section section-indent">
-      <div class="container wrapper-1">
-          <div class="slogan">
-            <h1 class="company-title">DOWNTOWN TECH LIVER</h1>
-            <h2 class="company-slogan">
-              The biggest computer shop in the area where customers comes first.
-            </h2>
-          </div>
-          <div class="home-computer-container">
-            <img class="home-computer"
-              src="https://github.com/r-e-d-ant/Computer-store-website/blob/main/assets/images/home_img.png?raw=true"
-              alt="a computer in dark with shadow" class="home-img">
-          </div>
-      </div>
-    </section>
-    
-    <!-- OFFER SECTION -->
-    <section class="section section-indent">
-      <div class="container">
-        <!-- offer 1 -->
-        <div class="offer offer-1">
-          <img src="https://github.com/r-e-d-ant/Computer-store-website/blob/main/assets/images/offer_1.png?raw=true"
-            alt="a computer in dark with with white shadow" class="offer-img offer-1-img">
-          <div class="offer-description offer-desc-1">
-            <h2 class="offer-title">Macbook pro</h2>
-            <p class="offer-hook">This a Macbook pro nulla vulputate magna vel odio sagittis bibendium...</p>
-            <div class="cart-btn">ADD TO CART</div>
-          </div>
+    <!-- ================== HEADER ================== -->
+    <%= require('../partials/header.html?raw') %>
+
+    <!-- =================== MAIN ==================== -->
+    <main>
+      <section class="section section-indent">
+        <div class="container wrapper-1">
+            <div class="slogan">
+              <h1 class="company-title">DOWNTOWN TECH LIVER</h1>
+              <h2 class="company-slogan">
+                The biggest computer shop in the area where customers comes first.
+              </h2>
+            </div>
+            <div class="home-computer-container">
+              <img class="home-computer"
+                src="<%= require('../img/laptop-1920x.png') %>"
+                alt="a computer in dark with shadow" 
+                class="home-img"
+                width="500">
+            </div>
         </div>
-        <!-- offer 2 -->
-        <div class="offer offer-2">
-          <img src="https://github.com/r-e-d-ant/Computer-store-website/blob/main/assets/images/offer_2.png?raw=true"
-            alt="a opened computer" class="offer-img offer-2-img">
-          <div class="offer-description offer-desc-2">
-            <h2 class="offer-title">Lenovo</h2>
-            <p class="offer-hook">This a Lenovo nulla vulputate magna vel odio sagittis bibendium...</p>
-            <div class="cart-btn">ADD TO CART</div>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    <!-- PRODUCT SECTION -->
-    <section class="section">
-      <div class="container wrapper-3">
-        <!-- product - 1 -->
-        <div class="product product-1">
-          <img src="https://github.com/r-e-d-ant/Computer-store-website/blob/main/assets/images/comp_1.png?raw=true"
-            alt="computer to sell" class="product-img">
-          <span class="product_add_cart">ADD TO CART</span>
-        </div>
-        <!-- product - 2 -->
-        <div class="product product-2">
-          <img src="https://github.com/r-e-d-ant/Computer-store-website/blob/main/assets/images/comp_2.png?raw=true"
-            alt="computer to sell" class="product-img">
-          <span class="product_add_cart">ADD TO CART</span>
-        </div>
-        <!-- product - 3 -->
-        <div class="product product-3">
-          <img src="https://github.com/r-e-d-ant/Computer-store-website/blob/main/assets/images/comp_3.png?raw=true"
-            alt="computer to sell" class="product-img">
-          <span class="product_add_cart">ADD TO CART</span>
-        </div>
-        <!-- product - 4 -->
-        <div class="product product-4">
-          <img src="https://github.com/r-e-d-ant/Computer-store-website/blob/main/assets/images/comp_4.png?raw=true"
-            alt="computer to sell" class="product-img">
-          <span class="product_add_cart">ADD TO CART</span>
-        </div>
-      </div>
-    </section>
-    
-    <!-- SPONSOR SECTION -->
-    <section class="section section-indent-more">
-      <div class="container wrapper-4">
-        <!-- SPONSOR group 1 -->
-        <div class="sponsor sponsor-1">
-          <img
-            src="https://raw.githubusercontent.com/r-e-d-ant/Computer-store-website/b90ac65459206fef22e9b87313f587185554263b/assets/images/microsoft.svg"
-            alt="">
-        </div>
-        <div class="sponsor sponsor-2">
-          <img
-            src="https://raw.githubusercontent.com/r-e-d-ant/Computer-store-website/b90ac65459206fef22e9b87313f587185554263b/assets/images/apple.svg"
-            alt="">
-        </div>
+      </section>
       
-        <!-- SPONSOR group 2 -->
-        <div class="sponsor sponsor-3">
-          <img
-            src="https://raw.githubusercontent.com/r-e-d-ant/Computer-store-website/b90ac65459206fef22e9b87313f587185554263b/assets/images/dell.svg"
-            alt="">
+      <!-------------- OFFER SECTION -------------->
+      <section class="section section-indent">
+        <div class="container">
+          <!---- offer 1 ---->
+          <div class="offer offer-1">
+            <img 
+              src="<%= require('../img/apple-laptop-1920x.png') %>"
+              alt="a computer in dark with with white shadow" 
+              class="offer-img offer-1-img"
+              width="400">
+            <div class="offer-description offer-desc-1">
+              <h2 class="offer-title">Macbook pro</h2>
+              <p class="offer-hook">This a Macbook pro nulla vulputate magna vel odio sagittis bibendium...</p>
+              <div class="cart-btn">ADD TO CART</div>
+            </div>
+          </div>
+          <!---- offer 2 ---->
+          <div class="offer offer-2">
+            <img 
+              src="<%= require('../img/coding-1920x.png') %>"
+              alt="a opened computer" 
+              class="offer-img offer-2-img"
+              width="400">
+            <div class="offer-description offer-desc-2">
+              <h2 class="offer-title">Lenovo</h2>
+              <p class="offer-hook">This a Lenovo nulla vulputate magna vel odio sagittis bibendium...</p>
+              <div class="cart-btn">ADD TO CART</div>
+            </div>
+          </div>
         </div>
-        <div class="sponsor sponsor-4">
-          <img
-            src="https://raw.githubusercontent.com/r-e-d-ant/Computer-store-website/b90ac65459206fef22e9b87313f587185554263b/assets/images/ibm.svg"
-            alt="">
+      </section>
+      
+      <!------------- PRODUCT SECTION ------------->
+      <section class="section">
+        <div class="container wrapper-3">
+          <!---- product - 1 ---->
+          <div class="product product-1">
+            <img 
+              src="<%= require('../img/danny-meneses-1920x.png') %>"
+              alt="computer to sell" 
+              class="product-img" 
+              width="400">
+            <span class="product_add_cart">ADD TO CART</span>
+          </div>
+          <!---- product - 2 ---->
+          <div class="product product-2">
+            <img 
+              src="<%= require('../img/gadgets-1920x.png') %>"
+              alt="computer to sell" 
+              class="product-img" 
+              width="400">
+            <span class="product_add_cart">ADD TO CART</span>
+          </div>
+          <!---- product - 3 ---->
+          <div class="product product-3">
+            <img 
+              src="<%= require('../img/keyframe-1920x.png') %>"
+              alt="computer to sell" 
+              class="product-img" 
+              width="400">
+            <span class="product_add_cart">ADD TO CART</span>
+          </div>
+          <!---- product - 4 ---->
+          <div class="product product-4">
+            <img 
+              src="<%= require('../img/pexels-kevin-1920x.png') %>"
+              alt="computer to sell" 
+              class="product-img" 
+              width="400">
+            <span class="product_add_cart">ADD TO CART</span>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+      
+      <!------------ SPONSOR MEDIA-LINKS ------------->
+      <section class="section section-indent-more">
+        <div class="container wrapper-4">
+          <!---- SPONSOR group 1 ---->
+          <div class="sponsor sponsor-1">
+            <img
+              src="https://raw.githubusercontent.com/r-e-d-ant/Computer-store-website/b90ac65459206fef22e9b87313f587185554263b/assets/images/microsoft.svg"
+              alt="">
+          </div>
+          <div class="sponsor sponsor-2">
+            <img
+              src="https://raw.githubusercontent.com/r-e-d-ant/Computer-store-website/b90ac65459206fef22e9b87313f587185554263b/assets/images/apple.svg"
+              alt="">
+          </div>
+          <!---- SPONSOR group 2 ---->
+          <div class="sponsor sponsor-3">
+            <img
+              src="https://raw.githubusercontent.com/r-e-d-ant/Computer-store-website/b90ac65459206fef22e9b87313f587185554263b/assets/images/dell.svg"
+              alt="">
+          </div>
+          <div class="sponsor sponsor-4">
+            <img
+              src="https://raw.githubusercontent.com/r-e-d-ant/Computer-store-website/b90ac65459206fef22e9b87313f587185554263b/assets/images/ibm.svg"
+              alt="">
+          </div>
+        </div>
+      </section>
+      
+      <!------------ SUBSCRIBE SECTION -------------->
+      <section class="section section-indent">
+        <div class="container wrapper-5">
+          <h2 class="subscribe-input-label">NEWSLETTER</h2>
+          <div class="subscribe-container">
+            <input type="text" id="email-subscribe" placeholder="Email address...">
+            <input type="submit" value="SUBSCRIBE"></input>
+          </div>
+        </div>
+      </section>
+    </main>
     
-    <!-- SUBSCRIBE SECTION-->
-    <section class="section section-indent">
-      <div class="container wrapper-5">
-        <h2 class="subscribe-input-label">NEWSLETTER</h2>
-        <div class="subscribe-container">
-          <input type="text" id="email-subscribe" placeholder="Email address...">
-          <input type="submit" value="SUBSCRIBE"></input>
-        </div>
-      </div>
-    </section>
-  </main>
-  
-  <!-- ========= FOOTER ========= -->
-  <%= require('../partials/footer.html?raw') %>
-
-</body>
+    <!-- ================ FOOTER ================== -->
+    <%= require('../partials/footer.html?raw') %>
+  </body>
 </html>

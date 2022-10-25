@@ -97,20 +97,6 @@ header {
     width: 80%;
     border-radius: 30px;
   }
-
-  &::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    transform: translatex(-50%);
-    bottom: 20px;
-    width: 30px;
-    height: 4px;
-    background: #f00;
-    border-radius: 10px;
-    transition: 0.5s;
-    transition-delay: 0.5;
-  }
   
   &::before {
     background: #f00;
@@ -227,7 +213,7 @@ header {
 	transform: translatex(-50%);
 	bottom: -5px;
 	width: 30px;
-	height: 10px;
+	height: 5px;
 	background: #f00;
 	border-radius: 10px;
 	transition: 0.5s;
@@ -246,7 +232,7 @@ header {
 	transform: translatex(-50%);
 	top: -5px;
 	width: 30px;
-	height: 10px;
+	height: 5px;
 	background: #f00;
 	border-radius: 10px;
 	transition: 0.5s;
@@ -260,9 +246,9 @@ header {
 }
 .nav-list .nav-item:nth-child(1)::before, /*chnage 1*/
 .nav-list .nav-item:nth-child(1)::after {
-	background: #ff1f71;
-	box-shadow: 0 0 5px #ff1f71, 0 0 15px #ff1f71, 0 0 30px #ff1f71,
-		0 0 60px #ff1f71;
+	background: #c208b9;
+	box-shadow: 0 0 5px #c208b9, 0 0 15px #c208b9, 0 0 30px #c208b9,
+		0 0 60px #c208b9;
 }
 .nav-list .nav-item:nth-child(2)::before, /* 2*/
 .nav-list .nav-item:nth-child(2)::after {
@@ -414,7 +400,7 @@ footer > ul > li > a {
     display: grid;
     justify-content: space-between;
     grid-template-columns: 1fr 1fr;
-    padding: 10rem 5rem 0 5rem;
+    padding: 10rem 5rem 5rem 5rem;
   }
   .slogan .company-title {
     max-width: 30rem;
