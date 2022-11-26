@@ -19,7 +19,7 @@
   box-sizing: border-box;
 }
 body {
-  background-color: var(--white-color);
+  background-color: var(--dark-color);
   // color: #2c302f;
   font-weight: 400;
   min-height: 100vh;
@@ -44,7 +44,7 @@ a {
 
 // ============================= SECTION ==================================
 .section {
-  padding: 0 15px;
+  padding: 0 60px;
 }
 
 // ============================= CONTAINER ===============================
@@ -385,7 +385,7 @@ footer > ul > li > a {
   }
 }
 
-@media (min-width: 769px) {
+@media screen and (min-width: 769px) {
   /* ------------------ HEADER ------------------- */
   header {
     padding: 1.5rem 5rem;
@@ -398,9 +398,10 @@ footer > ul > li > a {
   /* ---------------- HOME SECTION -------------- */
   .wrapper-1 {
     display: grid;
-    justify-content: space-between;
     grid-template-columns: 1fr 1fr;
     padding: 10rem 5rem 5rem 5rem;
+    align-items: center;
+    justify-items: center;
   }
   .slogan .company-title {
     max-width: 30rem;
