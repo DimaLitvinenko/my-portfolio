@@ -1,4 +1,20 @@
 // import 'normalize.css/normalize.css'
+// how to make filter list item?
+
+// heroes.filter( s => //for every object in heroes
+//     filters.every( t => { //check if every filter in iteration has the same value or not
+//        const key = Object.keys(t)[0];
+//        return s[key] == t[key]
+//     })
+// );
+
+// const output = heroes.filter( function(s) {
+//      return filters.every( function(t) {
+//         const key = Object.keys(t)[0];
+//         return s[key] == t[key]
+//      });
+// });
+
 import '../scss/main.scss'
 import './page.scss'
 import '../img/logo_angry-dog.png'
