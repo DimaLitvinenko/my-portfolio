@@ -15,17 +15,20 @@ body {
   width: 100%;
   padding: 50px 0;
 }
+
 .wrapper {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
 }
+
 [type='checkbox']:checked,
 [type='checkbox']:not(:checked) {
   position: absolute;
   left: -9999px;
 }
+
 [type='checkbox']:checked + label,
 [type='checkbox']:not(:checked) + label {
   position: relative;
@@ -41,15 +44,23 @@ body {
   margin-top: 10px;
   margin-right: 10px;
   margin-left: 10px;
-  -webkit-transition: all 0.2s ease;
-  transition: all 0.2s ease;
+  -webkit-transition: all var(--transition);
+  transition: all var(--transition);
 }
+
 [type='checkbox']:checked:hover + label:before,
-[type='checkbox']:not(:checked):hover + label:before,
+[type='checkbox']:not(:checked):hover + label:before {
+  opacity: 0.85;
+  box-shadow: 0 0 0 1px rgba(#ece8e5, 0.5), inset 0 0 0 2rem rgba(#ece8e5, 0.5);
+}
+
 [type='checkbox']:checked:hover + label:after,
 [type='checkbox']:not(:checked):hover + label:after {
-  opacity: 0.7;
+  opacity: 0.35;
+  box-shadow: 0 0 0 15px rgba(255,255,255,0.1);
+  filter: grayscale(0); 
 }
+
 [type='checkbox']:checked + label:before,
 [type='checkbox']:not(:checked) + label:before {
   content: '';
@@ -61,9 +72,10 @@ body {
   border-radius: 3px;
   background-color: transparent;
   z-index: -1;
-  -webkit-transition: all 0.2s ease;
-  transition: all 0.2s ease;
+  -webkit-transition: all var(--transition);
+  transition: all var(--transition);
 }
+
 [type='checkbox']:checked + label:after,
 [type='checkbox']:not(:checked) + label:after {
   content: '';
@@ -75,14 +87,16 @@ body {
   top: 4px;
   left: 4px;
   z-index: -1;
-  -webkit-transition: all 0.2s ease;
-  transition: all 0.2s ease;
+  -webkit-transition: all var(--transition);
+  transition: all var(--transition);
 }
+
 [type='checkbox']:not(:checked) + label:after {
   opacity: 0;
   -webkit-transform: scale(0);
   transform: scale(0);
 }
+
 [type='checkbox']:checked + label:after {
   opacity: 1;
   -webkit-transform: scale(1);
@@ -95,38 +109,47 @@ body {
 .checkbox-alizarin:not(:checked) + label:before {
   border: 1px solid #e74c3c;
 }
+
 .checkbox-alizarin:checked + label:after,
 .checkbox-alizarin:not(:checked) + label:after {
   background-color: #e74c3c;
 }
+
 .checkbox-wisteria:checked + label:before,
 .checkbox-wisteria:not(:checked) + label:before {
   border: 1px solid #8e44ad;
 }
+
 .checkbox-wisteria:checked + label:after,
 .checkbox-wisteria:not(:checked) + label:after {
   background-color: #8e44ad;
 }
+
 .checkbox-emerland:checked + label:before,
 .checkbox-emerland:not(:checked) + label:before {
   border: 1px solid #2ecc71;
 }
+
 .checkbox-emerland:checked + label:after,
 .checkbox-emerland:not(:checked) + label:after {
   background-color: #2ecc71;
 }
+
 .checkbox-belizehole:checked + label:before,
 .checkbox-belizehole:not(:checked) + label:before {
   border: 1px solid #2980b9;
 }
+
 .checkbox-belizehole:checked + label:after,
 .checkbox-belizehole:not(:checked) + label:after {
   background-color: #2980b9;
 }
+
 .checkbox-sunflower:checked + label:before,
 .checkbox-sunflower:not(:checked) + label:before {
   border: 1px solid #f1c40f;
 }
+
 .checkbox-sunflower:checked + label:after,
 .checkbox-sunflower:not(:checked) + label:after {
   background-color: #f1c40f;
@@ -135,9 +158,10 @@ body {
 .box {
   border-radius: 10px;
   box-shadow: 6px 7px 28px 0 rgba(16, 16, 16, 0.7);
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
+  -webkit-transition: all var(--transition);
+  transition: all var(--transition);
 }
+
 .box.alizarin {
   background-color: #e74c3c;
 }
@@ -153,6 +177,7 @@ body {
 .box.sunflower {
   background-color: #f1c40f;
 }
+
 .box.alizarin,
 .box.wisteria,
 .box.emerland,
@@ -165,9 +190,10 @@ body {
   padding: 0;
   margin: 0;
   visibility: hidden;
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
+  -webkit-transition: all var(--transition);
+  transition: all var(--transition);
 }
+
 .checkbox-alizarin:checked ~ .box.alizarin,
 .checkbox-wisteria:checked ~ .box.wisteria,
 .checkbox-emerland:checked ~ .box.emerland,
@@ -182,10 +208,13 @@ body {
   margin-right: 10px;
   margin-top: 20px;
   visibility: visible;
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
+  -webkit-transition: all var(--transition);
+  transition: all var(--transition);
 }
 
+/* -------------------------------------------------------------------------- */
+/*                                MEDIA-QUERIES                               */
+/* -------------------------------------------------------------------------- */
 @media (max-width: 1199px) {
   .checkbox-alizarin:checked ~ .box.alizarin,
   .checkbox-wisteria:checked ~ .box.wisteria,

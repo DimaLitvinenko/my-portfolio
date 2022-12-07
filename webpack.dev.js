@@ -14,14 +14,15 @@ module.exports = {
   entry: {
     index: './src/page-index/main.js',
     about: './src/page-about/main.js',
-    contacts: './src/page-contacts/main.js'
+    contacts: './src/page-contacts/main.js',
+    shop: './src/page-shop/main.js',
   },
 
   // https://webpack.js.org/configuration/dev-server/
   devServer: {
     port: 8080,
     open: true,
-    writeToDisk: false // https://webpack.js.org/configuration/dev-server/#devserverwritetodisk-
+    writeToDisk: false, // https://webpack.js.org/configuration/dev-server/#devserverwritetodisk-
   },
 
   // https://webpack.js.org/concepts/loaders/
@@ -34,9 +35,9 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env']
-          }
-        }
+            presets: ['@babel/preset-env'],
+          },
+        },
       },
       // {
       //   // https://webpack.js.org/loaders/css-loader/#root
@@ -47,26 +48,26 @@ module.exports = {
         test: /\.s[ac]ss$/i,
         use: [
           MiniCssExtractPlugin.loader,
-          'css-loader',           // Переводит CSS в CommonJS 
-          'sass-loader'
+          'css-loader', // Переводит CSS в CommonJS
+          'sass-loader',
         ],
       },
       {
         // https://webpack.js.org/guides/asset-modules/#resource-assets
         test: /\.(png|jpe?g|gif|svg)$/i,
-        type: 'asset/resource'
+        type: 'asset/resource',
       },
       {
         // https://webpack.js.org/guides/asset-modules/#replacing-inline-loader-syntax
         resourceQuery: /raw/,
-        type: 'asset/source'
+        type: 'asset/source',
       },
       {
         // https://webpack.js.org/loaders/html-loader/#usage
         resourceQuery: /template/,
-        loader: 'html-loader'
-      }
-    ]
+        loader: 'html-loader',
+      },
+    ],
   },
 
   // https://webpack.js.org/concepts/plugins/
@@ -75,24 +76,30 @@ module.exports = {
       template: './src/page-index/tmpl.html',
       inject: true,
       chunks: ['index'],
-      filename: 'index.html'
+      filename: 'index.html',
     }),
     new HtmlWebpackPlugin({
       template: './src/page-about/tmpl.html',
       inject: true,
       chunks: ['about'],
-      filename: 'about.html'
+      filename: 'about.html',
     }),
     new HtmlWebpackPlugin({
       template: './src/page-contacts/tmpl.html',
       inject: true,
       chunks: ['contacts'],
-      filename: 'contacts.html'
+      filename: 'contacts.html',
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/page-shop/tmpl.html',
+      inject: true,
+      chunks: ['shop'],
+      filename: 'shop.html',
     }),
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css',
-      chunkFilename: '[id].[contenthash].css'
+      chunkFilename: '[id].[contenthash].css',
     }),
-    new CleanWebpackPlugin ({ })
-  ]
+    new CleanWebpackPlugin({}),
+  ],
 }

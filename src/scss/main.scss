@@ -1,4 +1,8 @@
-// =========================== VARIABLES =================================
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap');
+
+/* -------------------------------------------------------------------------- */
+/*                                  VARIABLES                                 */
+/* -------------------------------------------------------------------------- */
 :root {
   --primary-color: hsl(9, 94%, 61%);
   --primary-color-alt: hsl(28, 72%, 83%);
@@ -7,26 +11,43 @@
   --third-color: hsl(220, 36%, 28%);
   --white-color: #fbfbfb;
   --white-color-alt: hsl(12, 14%, 93%);
-  --dark-color: hsl(300, 100%, 0%);
+  --dark-color: hsla(276, 10%, 27%, 61%);
+  --overlay-color: rgba(0, 0, 0, 0.92);
+
+  --transition: 0.3s cubic-bezier(0.7, 1, 0.45, 0.6);
+  --transition-slow: 0.45s cubic-bezier(0.7, 1, 0.45, 0.6);
+
+  --color-btn: #1e9bff;
+  --color-btn-red: #ff1867;
+  --color-btn-green: #6eff3e;
+
+  --font-size: 1; // Scale is using font-size in rems;
+  --color1: #f0ffff;
+  --borderRadius: 1em;
 }
 
-// ========================== COMMON-STYLES ============================
+/* -------------------------------------------------------------------------- */
+/*                                COMMON-STYLES                               */
+/* -------------------------------------------------------------------------- */
 *,
 *::before,
 *::after {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 body {
   background-color: var(--dark-color);
-  // color: #2c302f;
   font-weight: 400;
   min-height: 100vh;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  &.overlay {
+    overflow: hidden;
+    transform: translate(0);
+    background-color: var(--overlay-color);
+  }
 }
 img {
-  // width: 100%;
   height: auto;
 }
 h1,
@@ -42,12 +63,12 @@ a {
   text-decoration: none;
 }
 
-// ============================= SECTION ==================================
+/* -------------------------------------------------------------------------- */
+/*                                  CONTAINER                                 */
+/* -------------------------------------------------------------------------- */
 .section {
   padding: 0 60px;
 }
-
-// ============================= CONTAINER ===============================
 .container {
   @media (max-width: 1199px) {
     min-width: calc(33.333333333333% - 20px);
@@ -59,51 +80,52 @@ a {
     min-width: calc(100% - 20px);
   }
 }
-// ============================= HEADER ===============================
+
+/* -------------------------------------------------------------------------- */
+/*                                   HEADER                                   */
+/* -------------------------------------------------------------------------- */
 header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: var(--dark-color);
 }
+
 .company-logo {
   position: relative;
-
-  &:hover .company-logo_link {
-	  letter-spacing: 3px;
-  } 
-
-  &:hover .company-logo_link::before {
-    transform: skewX(45deg) translate(200px);
-  }
-
+  
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     left: 50%;
     transform: translatex(-50%);
-    bottom: 0;
+    bottom: 3px;
     width: 30px;
-    height: 4px;
+    height: 5px;
     background: #f00;
-    border-radius: 10px;
-    transition: 0.5s;
-    transition-delay: 0.5;
+    border-radius: 20px;
+    box-shadow: 0 0 5px #f00, 0 0 15px #f00, 0 0 30px #f00,
+		0 0 60px #f00;
+    transition: var(--transition-slow);
   }
 
-    &:hover::before /*lightup button*/ {
-    bottom: 0;
-    height: 50%;
-    width: 80%;
-    border-radius: 30px;
-  }
-  
-  &::before {
-    background: #f00;
-	  box-shadow: 0 0 5px #f00, 0 0 15px #f00, 0 0 30px #f00,
-		0 0 60px #f00;
+  &:hover,
+  &:focus {
+    & .company-logo_link {
+      letter-spacing: 3px;
+    } 
+    & .company-logo_link::before {
+      transform: skewX(45deg) translate(200px);
+    }
+    &::before /*lightup button*/ {
+      bottom: 0;
+      height: 90%;
+      width: 80%;
+      border-radius: 40px;
+    }
   }
 }
+
 .company-logo_link {
   display: flex;
 	justify-content: center;
@@ -120,11 +142,11 @@ header {
 	color: #fff;
 	font-weight: 400px;
 	z-index: 2;
-	transition: 0.5s;
-	backdrop-filter: blur(15px);
+	transition: var(--transition-slow);
+	backdrop-filter: blur(10px);
 
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
@@ -132,13 +154,15 @@ header {
     height: 100%;
     background: linear-gradient(to left, rgba(255, 255, 255, 0.15), transparent);
     transform: skewX(45deg) translate(0);
-    transition: 0.5s;
     filter: blur(0px);
-    z-index: 1;
+    // z-index: 1;
+    transition: var(--transition-slow);
   }
 }
 
-// ========================== NAVIGATION ==================================
+/* -------------------------------------------------------------------------- */
+/*                                 NAVIGATION                                 */
+/* -------------------------------------------------------------------------- */
 .navbar {
   & > ul {
     list-style: none;
@@ -160,8 +184,8 @@ header {
 }
 .nav-item {
   position: relative;
-	min-width: 130px;
-	height: 50px;
+	min-width: 120px;
+	height: 40px;
 	margin: 0;
 }
 .nav-link {
@@ -185,11 +209,12 @@ header {
 	color: #fff;
 	font-weight: 400px;
 	z-index: 1;
-	transition: 0.5s;
-	backdrop-filter: blur(15px);
+	backdrop-filter: blur(10px);
+  transition: var(--transition-slow);
 }
 .nav-list .nav-item:hover .nav-link {
 	letter-spacing: 3px;
+  transition: var(--transition-slow);
 }
 .nav-list .nav-item .nav-link::before {
 	content: "";
@@ -200,11 +225,12 @@ header {
 	height: 100%;
 	background: linear-gradient(to left, rgba(255, 255, 255, 0.15), transparent);
 	transform: skewX(45deg) translate(0);
-	transition: 0.5s;
 	filter: blur(0px);
+  transition: var(--transition-slow);
 }
 .nav-list .nav-item:hover .nav-link::before {
 	transform: skewX(45deg) translate(200px);
+  filter: blur(5px);
 }
 .nav-list .nav-item::before {
 	content: "";
@@ -216,14 +242,13 @@ header {
 	height: 5px;
 	background: #f00;
 	border-radius: 10px;
-	transition: 0.5s;
-	transition-delay: 0.5;
+	transition: var(--transition-slow);
 }
 .nav-list .nav-item:hover::before /*lightup button*/ {
-	bottom: 0;
-	height: 50%;
-	width: 80%;
-	border-radius: 30px;
+	bottom: 10px;
+	height: 45%;
+	width: 55%;
+	border-radius: 35px;
 }
 .nav-list .nav-item::after {
 	content: "";
@@ -235,8 +260,7 @@ header {
 	height: 5px;
 	background: #f00;
 	border-radius: 10px;
-	transition: 0.5s;
-	transition-delay: 0.5;
+	transition: var(--transition-slow);
 }
 .nav-list .nav-item:hover::after /*lightup button*/ {
 	top: 0;
@@ -271,26 +295,147 @@ header {
 
 .menu-toggle {
   display: none;
+  
 }
-.bx-menu,
-.bx-x {
-  width: 100%;
-  height: 20px;
+.burger {
+  position: relative;
+  padding: 2.5rem 1rem;
+  z-index: 3;
+  font-size: var(--font-size);
+  // transform: translateY(100%);
   cursor: pointer;
-  background-image: linear-gradient(
-    120deg,
-    var(--primary-color-alt),
-    var(--primary-color)
-  );
-  background-clip: text;
-  display: none !important;
-  color: aliceblue;
+
+  &.showHitArea {
+    border: 1px solid olive;
+  }
+  & > div {
+    width: 3rem;
+    height: 0.4rem;
+    border-radius: var(--borderRadius);
+    background: var(--color1);
+
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 3rem;
+      height: 0.4rem;
+      background-color: var(--color1);
+      border-radius: var(--borderRadius);
+      transition: font-size var(--transition-slow), background-color var(--transition-slow), border-radius var(--transition-slow);
+    }
+    &::before {
+      margin-top: -0.3rem;
+    }
+    &::after {
+      margin-top: 0.3rem;
+    }
+  }
 }
-.bx {
-  font-size: 2.5rem;
+.burger2 {
+  & > div {
+    transition: background-color var(--transition-slow), font-size var(--transition-slow);
+    &::before,
+    &::after {
+      transition: font-size var(--transition-slow);
+      transform-origin: center center;
+    }
+  }
+  &.toggled {
+    > div::before {
+      animation: burg2top var(--transition-slow) forwards;
+    }
+    > div {
+      background-color: transparent;
+    }
+    > div::after {
+      animation: burg2bottom var(--transition-slow) forwards;
+    }
+  }
+  &.unToggled {
+    > div::before {
+      animation: burg2topReset var(--transition-slow) forwards;
+    }
+    > div {
+      background-color: var(--color1);
+    }
+    > div::after {
+      animation: burg2bottomReset var(--transition-slow) forwards;
+    }
+  }
+
+  @keyframes burg2top {
+    0% {
+    }
+    20% {
+      margin-top: 0;
+      transform: rotate(0deg);
+    }
+    60% {
+      margin-top: 0;
+      transform: rotate(55deg);
+    }
+    100% {
+      margin-top: 0;
+      transform: rotate(45deg);
+    }
+  }
+  @keyframes burg2bottom {
+    0% {
+    }
+    20% {
+      margin-top: 0;
+      transform: rotate(0deg);
+    }
+    60% {
+      margin-top: 0;
+      transform: rotate(-55deg);
+    }
+    100% {
+      margin-top: 0;
+      transform: rotate(-45deg);
+    }
+  }
+  @keyframes burg2topReset {
+    0% {
+      margin-top: 0;
+      transform: rotate(45deg);
+    }
+    20% {
+      transform: rotate(0deg);
+    }
+    60% {
+      margin-top: 1.3rem;
+      transform: rotate(0deg);
+    }
+    100% {
+      margin-top: 1.3rem;
+      transform: rotate(0deg);
+    }
+  }
+  @keyframes burg2bottomReset {
+    0% {
+      margin-top: 0;
+      transform: rotate(-45deg);
+    }
+    20% {
+      transform: rotate(0deg);
+    }
+    60% {
+      margin-top: -1.3rem;
+      transform: rotate(0deg);
+    }
+    100% {
+      margin-top: -1.3rem;
+      transform: rotate(0deg);
+    }
+  }
 }
 
-// ========================== FOOTER =================================
+/* -------------------------------------------------------------------------- */
+/*                                   Footer                                   */
+/* -------------------------------------------------------------------------- */
 footer {
   background: #282828;
   color: beige;
@@ -325,8 +470,11 @@ footer > ul > li > a {
   flex: 2 1 auto;
 }
 
-
-/* ============================== MEDIA QUERIES ============================== */
+/* -------------------------------------------------------------------------- */
+/*                                MEDIA QUERIES                               */
+/* -------------------------------- MAX-WIDTH ------------------------------- */
+/* -------------------------------------------------------------------------- */
+/* */
 @media screen and (max-width: 768px) {
   .section {
     padding: 0 10px;
@@ -334,48 +482,61 @@ footer > ul > li > a {
   .slogan {
     padding: 0 20px;
   }
-  /* ------------------- HEADER -------------------- */
+ /* --------------------------------- HEADER --------------------------------- */
   header {
     padding: 0.5rem 1rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+  }
+  .company-logo {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 4;
   }
   .navbar {
     background-color: var(--dark-color);
     position: absolute;
-    top: 3.5rem;
+    top: 0;
     right: 0;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    transform: scaleY(0);
-    transform-origin: bottom;
-    transition: transform 500ms;
+    // width: 100%;
+    // height: 100vh;
+    // display: flex;
+    // justify-content: center;
+    transform: scale(0);
+    transform-origin: top;
+    transition: var(--transition-slow);
+    z-index: 3;
+
+    & .nav-item {
+      width: 150px;
+    }
   }
   .show-navbar {
-    display: flex;
-    transform: scaleY(1);
-    transform-origin: top;
-    transition: transform 300ms;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    // display: flex;
+    background-color: var(--overlay-color);
+    transform: scale(1);
+    transform-origin: right;
+    transition: var(--transition-slow);
+      
+    & .nav-list {
+      display: flex;
+      flex-direction: column;
+    }
   }
-  .nav-list {
-    display: flex;
-    flex-direction: column;
-  }
-  // .nav-item {
-  //   margin: 0.5rem 0;
-  // }
   .menu-toggle {
+    position: absolute;
+    top: 10px;
+    right: 10px;
     display: block;
-    width: 40px;
-  }
-  .bx-menu {
-    display: block !important;
-  }
-  .show-bx {
-    display: block !important;
-  }
-  .hide-bx {
-    display: none !important;
+    
   }
   .wrapper-1 {
     padding: 5rem 5rem 0 5rem;
@@ -385,17 +546,20 @@ footer > ul > li > a {
   }
 }
 
+/* -------------------------------------------------------------------------- */
+/* -------------------------------- MIN-WIDTH ------------------------------- */
+/* -------------------------------------------------------------------------- */
 @media screen and (min-width: 769px) {
-  /* ------------------ HEADER ------------------- */
+  /* --------------------------------- HEADER --------------------------------- */
   header {
     padding: 1.5rem 5rem;
   }
   .nav-item {
-    &:not(:last-child) {
-    margin-right: 15px;
+      &:not(:last-child) {
+      margin-right: 15px;
+    }
   }
-  }
-  /* ---------------- HOME SECTION -------------- */
+  /* ------------------------------ HOME SECTION ------------------------------ */
   .wrapper-1 {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -413,10 +577,7 @@ footer > ul > li > a {
     font-size: 1.3rem;
   }
   
-  /* -------------- OFFER SECTION -------------- */
-  // .section-2 {
-  //   margin: 2rem 5rem;
-  // }
+/* ------------------------------ OFFER SECTION ----------------------------- */
   .offer {
     margin-bottom: 5rem;
     align-items: center;
@@ -463,23 +624,23 @@ footer > ul > li > a {
     margin: 2rem 0 0.5rem 0;
   }
 
-  /* ----------------- PRODUCT SECTION ------------------ */
+ /* ----------------------------- PRODUCT SECTION ---------------------------- */
   .wrapper-3 {
     gap: 1rem;
   }
   .product::before {
     transform: scaleY(0);
     transform-origin: bottom;
-    transition: transform 300ms;
+    transition: transform var(--transition-slow);
   }
   .product:hover::before {
     transform: scaleY(1);
     transform-origin: top;
-    transition: transform 300ms;
   }
   .product_add_cart {
     transform: scaleY(0);
     transform-origin: bottom;
+    transition: transform var(--transition-slow);
   }
   .product:hover .product_add_cart {
     transform: translate(-50%, -50%) scaleY(1);
@@ -491,7 +652,7 @@ footer > ul > li > a {
   //   margin: 5rem 0;
   // }
 
-  /* ---------------= SUBSCRIBE SECTION ------------- */
+ /* ---------------------------- SUBSCRIBE SECTION --------------------------- */
   .wrapper-5 {
     padding: 1rem 0;
   }
@@ -507,7 +668,7 @@ footer > ul > li > a {
     width: 10rem;
   }
 
-  /* ---------------- FOOTER -------------- */
+/* --------------------------------- FOOTER --------------------------------- */
   .top-footer {
     display: flex;
     flex-direction: row;

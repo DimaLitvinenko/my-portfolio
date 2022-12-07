@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>About</title>
+    <meta lang="en" />
     <meta charset="UTF-8" />
     <meta http-equiv="cache-control" content="no-cache" />
     <meta http-equiv="pragma" content="no-cache" />
@@ -22,82 +23,86 @@
     />
   </head>
   <body>
+    <!-- ----------------------------------------------------------------------- -->
+    <!--                                 HEADER                                  -->
+    <!-- ----------------------------------------------------------------------- -->
     <%= require('../partials/header.html?raw') %>
 
-    <div class="section">
-      <div class="container">
-        <h1 class="page-title">
-          <i class="fas fa-user-secret"></i>
-          ABOUT
-        </h1>
-        <div class="wrapper">
-          <input
-            class="checkbox-alizarin"
-            type="checkbox"
-            id="color-1"
-            checked="checked"
-          />
-          <label for="color-1">alizarin</label>
-          <input
-            class="checkbox-wisteria"
-            type="checkbox"
-            id="color-2"
-            checked="checked"
-          />
-          <label for="color-2">wisteria</label>
-          <input
-            class="checkbox-emerland"
-            type="checkbox"
-            id="color-3"
-            checked="checked"
-          />
-          <label for="color-3">emerland</label>
-          <input
-            class="checkbox-belizehole"
-            type="checkbox"
-            id="color-4"
-            checked="checked"
-          />
-          <label for="color-4">belizehole</label>
-          <input
-            class="checkbox-sunflower"
-            type="checkbox"
-            id="color-5"
-            checked="checked"
-          />
-          <label for="color-5">sunflower</label>
-          <div class="section p-0 pt-2"></div>
-          <div class="col box alizarin"></div>
-          <div class="col box wisteria"></div>
-          <div class="col box emerland"></div>
-          <div class="col box belizehole"></div>
-          <div class="col box sunflower"></div>
-          <div class="col box alizarin"></div>
-          <div class="col box wisteria"></div>
-          <div class="col box emerland"></div>
-          <div class="col box belizehole"></div>
-          <div class="col box sunflower"></div>
-          <div class="col box alizarin"></div>
-          <div class="col box wisteria"></div>
-          <div class="col box emerland"></div>
-          <div class="col box belizehole"></div>
-          <div class="col box sunflower"></div>
-          <div class="col box alizarin"></div>
-          <div class="col box wisteria"></div>
-          <div class="col box emerland"></div>
-          <div class="col box belizehole"></div>
-          <div class="col box sunflower"></div>
+    <!-- ----------------------------------------------------------------------- -->
+    <!--                                  MAIN                                   -->
+    <!-- ----------------------------------------------------------------------- -->
+    <main>
+      <div class="section">
+        <div class="container">
+          <h1 class="page-title">
+            <i class="fas fa-user-secret"></i>
+            ABOUT
+          </h1>
+          <div class="wrapper">
+            <input
+              class="checkbox-alizarin"
+              type="checkbox"
+              id="color-1"
+              checked="checked"
+            />
+            <label for="color-1">alizarin</label>
+            <input
+              class="checkbox-wisteria"
+              type="checkbox"
+              id="color-2"
+              checked="checked"
+            />
+            <label for="color-2">wisteria</label>
+            <input
+              class="checkbox-emerland"
+              type="checkbox"
+              id="color-3"
+              checked="checked"
+            />
+            <label for="color-3">emerland</label>
+            <input
+              class="checkbox-belizehole"
+              type="checkbox"
+              id="color-4"
+              checked="checked"
+            />
+            <label for="color-4">belizehole</label>
+            <input
+              class="checkbox-sunflower"
+              type="checkbox"
+              id="color-5"
+              checked="checked"
+            />
+            <label for="color-5">sunflower</label>
+            <div class="section p-0 pt-2"></div>
+            <div class="col box alizarin"></div>
+            <div class="col box wisteria"></div>
+            <div class="col box emerland"></div>
+            <div class="col box belizehole"></div>
+            <div class="col box sunflower"></div>
+            <div class="col box alizarin"></div>
+            <div class="col box wisteria"></div>
+            <div class="col box emerland"></div>
+            <div class="col box belizehole"></div>
+            <div class="col box sunflower"></div>
+            <div class="col box alizarin"></div>
+            <div class="col box wisteria"></div>
+            <div class="col box emerland"></div>
+            <div class="col box belizehole"></div>
+            <div class="col box sunflower"></div>
+            <div class="col box alizarin"></div>
+            <div class="col box wisteria"></div>
+            <div class="col box emerland"></div>
+            <div class="col box belizehole"></div>
+            <div class="col box sunflower"></div>
+          </div>
         </div>
       </div>
-    </div>
+    </main>
 
-    <!-- <div style="text-align: center"> -->
-    <!-- <img class="img-src-uses-require" src="<%= require('../img/unicorn.jpg') %>" width="200"> -->
-
-    <!-- uses a specific "template" resourceQuery (webpack config) which will load a file like a esModule by default, hence ".default" -->
-
-    <!-- </div> -->
-
+    <!-- ----------------------------------------------------------------------- -->
+    <!--                                 FOOTER                                  -->
+    <!-- ----------------------------------------------------------------------- -->
     <%= require('../partials/footer.html?raw') %>
   </body>
 </html>

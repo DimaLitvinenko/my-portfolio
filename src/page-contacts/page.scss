@@ -1,58 +1,17 @@
-// html {
-//   scroll-snap-type: y mandatory;
-// }
-
-// html,
-// body,
-// section {
-//   block-size: 100%;
-// }
-// body {
-//   position: relative;
-//   margin: 0;
-//   font-family: system-ui, sans-serif;
-//   // font-size: 4rem;
-// }
-// header {
-//   position: sticky;
-//   top:0;
-//   // height: 50px;
-// }
-// section {
-//   scroll-snap-align: start;
-//   scroll-snap-stop: always;
-
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-
-//   &:nth-of-type(even) {
-//     color: white;
-//     background: black;
-//   }
-//   &:nth-of-type(odd) {
-//     color: black;
-//     background: white;
-//   }
-// }
 @import url("https://use.typekit.net/ovt6ynt.css");
-@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Oswald:wght@200;300;400;500;600;700&family=Roboto+Condensed:wght@300;400;700&family=Roboto:wght@100;300;400;500;700;900&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&family=Spectral:wght@200;300;400;500;600;700;800&display=swap");
-
 
 body {
-  padding: 0;
-  margin: 0;
-  height: 100%;
-  font-family: "Roboto", sans-serif;
+  min-height: 100vh;
   background: linear-gradient(#141e30, #243b55);
 }
+
 .title {
     text-align: center;
     padding: 50px 0px 25px 0;
     font-size: 44px;
     font-weight: 600;
     color: #21222c;
-    font-family: 'Playfair Display SC';
+    // font-family: 'Playfair Display SC';
 }
 .wrapper {
   background-color: #f6f8ff;
@@ -413,7 +372,7 @@ label.tab.tab-warning {
     position: absolute;
     box-shadow: 0px 0px 8px 0px hsl(262deg 100% 70% / 70%);
     background: linear-gradient(113deg, hsl(260deg 100% 64%) 0%, hsl(190deg 100% 55%) 100%);
-    transition: all 0.3s;
+    transition: all var(--transition);
     top: 36px;
     z-index: 2;
 }

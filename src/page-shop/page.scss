@@ -1,0 +1,123 @@
+.container {
+  width: 100%;
+  min-height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 120px;
+  // background: #27282c;
+}
+
+.button {
+  position: relative;
+  padding: 16px 30px;
+
+  font-size: 1.5rem;
+  letter-spacing: 0.1rem;
+  color: var(--color);
+  background-color: inherit;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+  text-shadow: 0 0 15px var(--color);
+  text-decoration: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  z-index: 1;
+  transition: var(--transition-slow);
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color);
+    z-index: -1;
+    transform: scale(0);
+    transition: var(--transition-slow);
+  }
+}
+
+.button:hover,
+.button:focus {
+  color: #fff;
+  border: 2px solid rgba(0, 0, 0, 0);
+  box-shadow: 0 0 0px var(--color);
+  
+
+  & span {
+    opacity: 0;
+    transition: var(--transition-slow);
+  }
+  & span:nth-child(1),
+  & span:nth-child(3) {
+    transform: translateX(0);
+  }
+
+  & span:nth-child(1) {
+    left: 20%;
+  }
+  & span:nth-child(3) {
+    right: 20%;
+  } 
+  & span:nth-child(2) {
+    top: 20%;
+  }
+  & span:nth-child(4 ) {
+    bottom: 20%;
+  }
+
+  &::before {
+    transform: scale(1);
+    box-shadow: 0 0 10px var(--color),
+      0 0 30px var(--color),
+      0 0 60px var(--color);
+      backdrop-filter: blur(15px);
+    transition: var(--transition-slow);
+  }
+}
+
+.button span {
+  position: absolute;
+  background-color: var(--color);
+  pointer-events: none;
+  border-radius: 2px;
+  box-shadow: 0 0 10px var(--color),
+    0 0 20px var(--color),
+    0 0 30px var(--color),
+    0 0 50px var(--color),
+    0 0 100px var(--color);
+
+  &:nth-child(1),
+  &:nth-child(3) {
+    width: 30px;
+    height: 4px;
+  }
+  &:nth-child(2),
+  &:nth-child(4) {
+    width: 4px;
+    height: 20px;
+  }
+  &:nth-child(1) {
+    top: calc(50% - 2px);
+    left: -20px;
+    transform-origin: left;
+  }
+  &:nth-child(3) {
+    top: calc(50% - 2px);
+    right: -20px;
+    transform-origin: right;
+  } 
+  &:nth-child(2) {
+    left: calc(50% - 2px);
+    top: -20px;
+    transform-origin: top;
+  } 
+  &:nth-child(4) {
+    left: calc(50% - 2px);
+    bottom: -20px;
+    transform-origin: bottom;
+  }
+}
