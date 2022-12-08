@@ -31,21 +31,17 @@ window.Bar = Bar()
 // console.log(window.Foo.getValue())
 // console.log(window.Bar)
 
-// const menuToggle = document.querySelector('.menu-toggle')
-// const bxMenu = document.querySelector('.bx-menu')
-// const bxX = document.querySelector('.bx-x')
 const navBar = document.querySelector('.navbar')
 const menuBtn = document.querySelector('.burger')
-const overlay = document.querySelector('body')
+const body = document.querySelector('body')
 
 menuBtn.classList.add('unToggled')
 
 menuBtn.addEventListener('click', e => {
   menuBtn.classList.toggle('toggled')
   menuBtn.classList.toggle('unToggled')
-  // also open menu here...
-  overlay.classList.toggle('overlay')
   navBar.classList.toggle('show-navbar')
+  body.classList.toggle('overlay')
 })
 
 // --- open menu ---
