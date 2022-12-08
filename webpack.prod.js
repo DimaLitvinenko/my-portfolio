@@ -6,37 +6,38 @@ const TerserPlugin = require('terser-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
-                      // https://webpack.js.org/configuration/mode/
+  // https://webpack.js.org/configuration/mode/
   mode: 'production',
-                      // This option controls if and how source maps are generated.
-                      // https://webpack.js.org/configuration/devtool/
+  // This option controls if and how source maps are generated.
+  // https://webpack.js.org/configuration/devtool/
   devtool: 'source-map',
-                        // https://webpack.js.org/concepts/entry-points/#multi-page-application
+  // https://webpack.js.org/concepts/entry-points/#multi-page-application
   entry: {
     index: './src/page-index/main.js',
     about: './src/page-about/main.js',
-    contacts: './src/page-contacts/main.js'
+    contacts: './src/page-contacts/main.js',
+    shop: './src/page-shop/main.js',
   },
-                        // how to write the compiled files to disk
-                        // https://webpack.js.org/concepts/output/
+  // how to write the compiled files to disk
+  // https://webpack.js.org/concepts/output/
   output: {
     filename: '[name].[contenthash].js',
     path: path.resolve(__dirname, 'dist'),
-    clean: true
+    clean: true,
   },
-                        // https://webpack.js.org/concepts/loaders/
+  // https://webpack.js.org/concepts/loaders/
   module: {
     rules: [
       {
-                        // https://webpack.js.org/loaders/babel-loader/#root
+        // https://webpack.js.org/loaders/babel-loader/#root
         test: /\.m?js$/i,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env']
-          }
-        }
+            presets: ['@babel/preset-env'],
+          },
+        },
       },
       {
         test: /\.hbs$/,
@@ -71,7 +72,7 @@ module.exports = {
       {
         // https://webpack.js.org/guides/asset-modules/#replacing-inline-loader-syntax
         resourceQuery: /raw/,
-        type: 'asset/source'
+        type: 'asset/source',
       },
       {
         // https://webpack.js.org/loaders/html-loader/#usage
@@ -80,8 +81,8 @@ module.exports = {
         options: {
           minimize: true,
         },
-      }
-    ]
+      },
+    ],
   },
   // https://webpack.js.org/concepts/plugins/
   plugins: [
@@ -89,25 +90,31 @@ module.exports = {
       template: './src/page-index/tmpl.html',
       inject: true,
       chunks: ['index'],
-      filename: 'index.html'
+      filename: 'index.html',
     }),
     new HtmlWebpackPlugin({
       template: './src/page-about/tmpl.html',
       inject: true,
       chunks: ['about'],
-      filename: 'about.html'
+      filename: 'about.html',
     }),
     new HtmlWebpackPlugin({
       template: './src/page-contacts/tmpl.html',
       inject: true,
       chunks: ['contacts'],
-      filename: 'contacts.html'
+      filename: 'contacts.html',
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/page-shop/tmpl.html',
+      inject: true,
+      chunks: ['shop'],
+      filename: 'shop.html',
     }),
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css',
-      chunkFilename: '[id].[contenthash].css'
+      chunkFilename: '[id].[contenthash].css',
     }),
-    new CleanWebpackPlugin()
+    new CleanWebpackPlugin(),
   ],
   // https://webpack.js.org/configuration/optimization/
   optimization: {
@@ -115,10 +122,10 @@ module.exports = {
     minimizer: [
       // https://webpack.js.org/plugins/terser-webpack-plugin/
       new TerserPlugin({
-        parallel: true
+        parallel: true,
       }),
       // https://webpack.js.org/plugins/mini-css-extract-plugin/#minimizing-for-production
-      new CssMinimizerPlugin()
-    ]
-  }
+      new CssMinimizerPlugin(),
+    ],
+  },
 }
