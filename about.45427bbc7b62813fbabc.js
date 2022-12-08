@@ -1,0 +1,2 @@
+(()=>{"use strict";document.addEventListener("DOMContentLoaded",(function(){console.log("DOMContentLoaded","page-about")}));var e=document.querySelector(".navbar"),t=document.querySelector(".burger"),o=document.querySelector("body");t.classList.add("unToggled"),t.addEventListener("click",(function(n){t.classList.toggle("toggled"),t.classList.toggle("unToggled"),e.classList.toggle("show-navbar"),o.classList.toggle("overlay")}))})();
+//# sourceMappingURL=about.45427bbc7b62813fbabc.js.map
